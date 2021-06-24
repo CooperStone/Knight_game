@@ -1,13 +1,12 @@
 import arcade
 
-SPRITE_SCALING = 0.5
+SPRITE_SCALING = 1
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-SCREEN_TITLE = "testcharacter.py"
+SCREEN_TITLE = "Knight game"
 
 MOVEMENT_SPEED = 5
-
 
 class Player(arcade.Sprite):
     """ Player Class """
@@ -29,6 +28,7 @@ class Player(arcade.Sprite):
             self.bottom = 0
         elif self.top > SCREEN_HEIGHT - 1:
             self.top = SCREEN_HEIGHT - 1
+            
 
 
 class MyGame(arcade.Window):
@@ -51,7 +51,7 @@ class MyGame(arcade.Window):
         self.player_sprite = None
 
         # Set the background color
-        arcade.set_background_color(arcade.color.BLACK)
+        arcade.set_background_color(arcade.color.DARK_BLUE)
         self.score = None
         self.player = None
         self.coin_list = None
@@ -63,7 +63,7 @@ class MyGame(arcade.Window):
         self.player_list = arcade.SpriteList()
 
         # Set up the player
-        self.player_sprite = Player("player_idle.png", SPRITE_SCALING)
+        self.player_sprite = Player("New Piskel-1.png.png", SPRITE_SCALING)
         self.player_sprite.center_x = 50
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
@@ -158,10 +158,6 @@ def main():
     window = MyGame(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
     window.setup()
     arcade.run()
-
-game = MyGame(600, 600, "mygame")
-game.setup()
-arcade.run()
 
 if __name__ == "__main__":
     main()
